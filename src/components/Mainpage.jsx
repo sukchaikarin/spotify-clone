@@ -5,7 +5,7 @@ import PlayMenu from "./PlayMenu";
 
 const Mainpage = () => {
   return (
-    <div className="flex flex-col p-4 h-screen gap-2 bg-teal-300">
+    <div className="flex flex-col p-2 h-screen  ">
       <div className="flex h-screen gap-2">
         <Sidebar />
         <MainContent />

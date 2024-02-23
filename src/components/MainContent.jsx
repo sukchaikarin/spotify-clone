@@ -2,7 +2,7 @@ import React from "react";
 
 const MainContent = () => {
   return (
-    <div className="flex grow bg-slate-400 h-100 w-screen text-black">
+    <div className="flex grow bg-neutral-900 h-100 w-screen text-white rounded-lg">
       MainContent
     </div>
   );

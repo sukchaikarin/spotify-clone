@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import "./PlayMenu.css"; // Import the CSS file
 
 const PlayMenu = () => {
-  return <div className="flex grow bg-red-300 text-black">PlayMenu</div>;
+  const [isLogin, setIsLogin] = useState(true);
+
+  return (
+    <>
+      {isLogin ? (
+        <>
+          <div className="flex grow text-white  ">After Login</div>
+        </>
+      ) : (
+        <div className="flex grow bg-playmenu text-black">Before Login</div>
+      )}
+    </>
+  );
 };
 
 export default PlayMenu;

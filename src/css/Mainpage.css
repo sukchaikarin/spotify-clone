@@ -1,0 +1,33 @@
+span.Resizer.vertical {
+    position: relative;
+    width: 0.5rem;
+  }
+  
+  span.Resizer.vertical:hover::before {
+    content: "";
+    position: absolute;
+    top:10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.5px;
+    height: 600px;
+    background-color: white;
+  }
+  
+  span.Resizer.vertical:hover {
+    cursor: grab;
+  }
+  
+  span.Resizer.vertical:active {
+    cursor: grabbing;
+  }
+  
+  .grab {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+  
+  .grabbing {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }

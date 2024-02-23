@@ -6,7 +6,7 @@ const SpotifyLogo = () => {
       src={SpotifyLogoImg}
       alt="Spotify Logo"
       className="cursor-pointer"
-      style={{ maxWidth: "32%", height: "auto" }}
+      style={{ maxWidth: "80px", height: "auto" }}
     />
   );
 };

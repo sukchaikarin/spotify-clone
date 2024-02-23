@@ -1,11 +1,11 @@
 import React from "react";
-import MainMenu from "./MainMenu";
 import SideMenu from "./SideMenu";
+import SideTopMenu from "./SideTopMenu";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col gap-2 w-96">
-      <MainMenu />
+    <div className="flex flex-col h-full gap-2 ">
+      <SideTopMenu />
       <SideMenu />
     </div>
   );

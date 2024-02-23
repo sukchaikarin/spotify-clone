@@ -1,6 +1,7 @@
 /* width */
 ::-webkit-scrollbar {
     width: 12px;
+    position: absolute;
 }
   
 /* Track */
@@ -15,5 +16,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #333; /* สีของ thumb เมื่อ hover */
+    background: #c6c6c6; /* สีของ thumb เมื่อ hover */
 }

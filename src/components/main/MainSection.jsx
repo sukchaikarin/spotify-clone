@@ -5,7 +5,13 @@ import MainContent from "./MainContent";
 const MainSection = () => {
   return (
     <div className="flex h-screen gap-2">
-      <SplitPane className="p-2" split="vertical" minSize={280} maxSize={420}>
+      <SplitPane
+        className="p-2"
+        split="vertical"
+        minSize={280}
+        maxSize={420}
+        defaultSize={420}
+      >
         <Sidebar />
         <MainContent />
       </SplitPane>

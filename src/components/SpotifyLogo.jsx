@@ -1,5 +1,5 @@
 import React from "react";
-import SpotifyLogoImg from "../../public/Spotify_Logo_CMYK.png";
+import SpotifyLogoImg from "/Spotify_Logo_CMYK.png";
 const SpotifyLogo = () => {
   return (
     <img

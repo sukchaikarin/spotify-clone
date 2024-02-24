@@ -1,0 +1,20 @@
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+    position: absolute;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; /* สีเริ่มต้นของ thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #c6c6c6; /* สีของ thumb เมื่อ hover */
+}

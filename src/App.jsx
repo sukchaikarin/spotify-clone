@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Mainpage from "./components/main/Mainpage";
+import RightClickProtect from "./components/RightClickProtect";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <RightClickProtect>
+        <RouterProvider router={router} />
+      </RightClickProtect>
     </>
   );
 }

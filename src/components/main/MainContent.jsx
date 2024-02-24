@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/card.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import MusicCard from "../MusicCard";
 const MainContent = () => {
+  const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
+
+  const products = new Array(10).fill(null); // สร้าง array ที่มีข้อมูล null 10 รายการ
+
+  // เลือกจำนวนสินค้าที่จะแสดงโดยใช้ตัวแปร showAll
+  const displayedProducts = showAll ? products : products.slice(0, 6);
+
   return (
     <div className="flex grow bg-neutral-900 h-[616px]  text-white rounded-lg relative">
       <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
@@ -30,28 +38,25 @@ const MainContent = () => {
         </div>
       </div>
 
-      <div className=" h-[548px] flex flex-col px-7 pb-16 mt-16  gap-20 overflow-hidden hover:overflow-y-auto w-full">
+      <div className=" h-[548px] flex flex-col pl-5 pb-16 mt-16  gap-20 overflow-hidden hover:overflow-y-auto w-full">
         <div className="flex flex-col gap-2">
-          <div>
+          <div className="flex justify-between mr-6">
             <h1 className=" text-2xl font-bold hover:underline hover:underline-offset-2">
               Spotify Playlists
             </h1>
+            {!showAll && (
+              <button
+                onClick={() => setShowAll(true)}
+                className="text-sm font-bold hover:underline   text-gray-400"
+              >
+                Show all
+              </button>
+            )}
           </div>
-          <div className="flex flex-col p-3 w-48 h-60 gap-3 bg-cardspotify shadow-md rounded-lg ">
-            <figure>
-              <img
-                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-                className="rounded-md"
-              />
-            </figure>
-            <div className="flex flex-col  ">
-              <h2 className="">lofi beats</h2>
-              <p className="h-12 overflow-hidden bg-slate-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-                soluta esse autem ratione quae nam, iusto fuga vel rem quo.
-              </p>
-            </div>
+          <div className="flex flex-wrap  gap-[21px]">
+            {displayedProducts.map((product, index) => (
+              <MusicCard key={index} />
+            ))}
           </div>
         </div>
 

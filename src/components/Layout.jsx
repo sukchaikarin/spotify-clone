@@ -3,7 +3,7 @@ import SplitPane from "react-split-pane";
 import Sidebar from "./side/Sidebar";
 import PlayMenu from "./PlayMenu";
 
-import "../css/Mainpage.css"
+import "../css/Mainpage.css";
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col  h-screen">
@@ -16,8 +16,8 @@ const Layout = ({ children }) => {
           defaultSize={300}
         >
           <Sidebar />
-          <div className="flex grow bg-lime-900 h-[616px]  text-white rounded-lg relative">
-          {children}
+          <div className="flex grow bg-neutral-900 h-[616px]  text-white rounded-lg relative">
+            {children}
           </div>
         </SplitPane>
       </div>

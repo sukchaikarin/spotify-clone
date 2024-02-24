@@ -1,12 +1,21 @@
-#play-card {
-    right: 0.5rem;
-    bottom: 0;
+
+
+.play-card{
+  right: 0.5rem;
+  bottom: 0;
     opacity: 0; /* เริ่มต้นซ่อนปุ่ม */
     transition: opacity 0.3s ease, transform 0.3s ease; /* เพิ่ม transition เพื่อทำให้การเปลี่ยนแปลงเกิดอย่างนุ่มนวล */
   }
+
+
   
-  #music-card:hover #play-card {
+  .music-card:hover .play-card {
     
     opacity: 1; /* เมื่อ #music-card โดน hover ให้ปุ่มแสดงออกมา */
-    transform: translateY(-0.5rem); /* เลื่อนปุ่มลง */
+    transform: translateY(-0.5rem);
+     /* เลื่อนปุ่มลง */
+  }
+
+  .play-card:hover{
+    transform: scale(1.1);
   }

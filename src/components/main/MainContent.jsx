@@ -3,6 +3,8 @@ import "../../css/card.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
 import MusicCard from "../MusicCard";
+import { Link } from "react-router-dom";
+
 const MainContent = () => {
   const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
 
@@ -29,9 +31,11 @@ const MainContent = () => {
           </button>
         </div>
         <div className="flex ">
-          <button className="font-bold text-gray-400 hover:text-white  w-28 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
-            Sign up
-          </button>
+          <Link to={"/signup"}>
+            <button className="font-bold text-gray-400 hover:text-white  w-28 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
+              Sign up
+            </button>
+          </Link>
           <button className="bg-white font-bold text-black w-28 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
             Log in
           </button>

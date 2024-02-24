@@ -19,7 +19,7 @@ const PlayMenu = () => {
               No credit card needed.
             </span>
           </div>
-          <button className="bg-white font-bold text-black w-36 h-12 mr-3 rounded-full">
+          <button className="bg-white font-bold text-black w-36 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
             Sign up free
           </button>
         </div>

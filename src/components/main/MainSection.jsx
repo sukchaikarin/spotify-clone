@@ -10,7 +10,7 @@ const MainSection = () => {
         split="vertical"
         minSize={280}
         maxSize={420}
-        defaultSize={420}
+        defaultSize={300}
       >
         <Sidebar />
         <MainContent />

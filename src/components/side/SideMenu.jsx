@@ -17,7 +17,7 @@ const SideMenu = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-col gap-5 h-40 mt-14 mx-2 overflow-hidden   hover:overflow-y-auto relative">
+      <div className="flex flex-col gap-5 h-40 mt-14 mx-2 overflow-hidden   hover:overflow-y-auto ">
         <div className="flex flex-col   gap-6 bg-neutral-800 rounded-lg w-auto p-4 ">
           <div className="flex flex-col gap-1">
             <span className="font-semibold">Create your first playlist</span>
@@ -61,7 +61,7 @@ const SideMenu = () => {
       </div>
 
       <div className="mx-5 mb-8">
-        <button className="flex font-semibold text-sm rounded-full border-[1px] border-purple-500 bg-transparent justify-center items-center gap-1 px-3 py-1">
+        <button className="flex font-semibold text-sm rounded-full border-[1px] border-purple-500 bg-transparent justify-center items-center gap-1 px-3 py-1 transform transition-transform hover:scale-105 hover:border-white">
           <TbWorld size={23} />
           English
         </button>

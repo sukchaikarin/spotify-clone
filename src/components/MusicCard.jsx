@@ -1,12 +1,9 @@
-import React from "react";
+import "../css/card.css";
 import { FaCirclePlay } from "react-icons/fa6";
 import "../css/playcard.css";
 const MusicCard = () => {
   return (
-    <div
-      id="music-card"
-      className="cursor-pointer hover:bg-neutral-700 flex flex-col p-4 w-44 h-64 justify-between items-center gap-[14px] bg-neutral-800 shadow-md rounded-lg "
-    >
+    <div className="music-card cursor-pointer hover:bg-neutral-700 flex flex-col p-4 w-44 h-64 justify-between items-center gap-[14px] bg-neutral-800 shadow-md rounded-lg ">
       <div className="relative">
         <figure>
           <img
@@ -15,10 +12,8 @@ const MusicCard = () => {
             className="rounded-md"
           />
         </figure>
-        <button
-          id="play-card"
-          className="absolute bg-black rounded-full  shadow-lg text-[#1ed55f]   "
-        >
+
+        <button className="absolute play-card rounded-full  shadow-lg text-[#1ed55f]   ">
           <FaCirclePlay size={45} />
         </button>
       </div>

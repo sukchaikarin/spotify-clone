@@ -1,12 +1,11 @@
-import React from "react";
 import SpotifyLogoImg from "/Spotify_Logo_CMYK.png";
-const SpotifyLogo = () => {
+const SpotifyLogo = ({ logoClassName, logoStyle }) => {
   return (
     <img
       src={SpotifyLogoImg}
       alt="Spotify Logo"
-      className="cursor-pointer"
-      style={{ maxWidth: "80px", height: "auto" }}
+      className={logoClassName}
+      style={logoStyle}
     />
   );
 };

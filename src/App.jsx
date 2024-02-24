@@ -1,20 +1,36 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Mainpage from "./components/main/Mainpage";
 import RightClickProtect from "./components/RightClickProtect";
+import Signup from "./components/Signup";
+import Homepage from "./components/main/Homepage";
+import SearchPage from "./components/main/SearchPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Mainpage />,
+    element: (
+      <RightClickProtect>
+        <Homepage />
+      </RightClickProtect>
+    ),
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/search",
+    element: (
+      <RightClickProtect>
+        <SearchPage />
+      </RightClickProtect>
+    ),
   },
 ]);
 
 function App() {
   return (
     <>
-      <RightClickProtect>
-        <RouterProvider router={router} />
-      </RightClickProtect>
+      <RouterProvider router={router} />
     </>
   );
 }

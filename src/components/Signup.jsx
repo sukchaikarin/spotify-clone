@@ -1,4 +1,4 @@
-import React from "react";
+
 import SpotifyLogo from "./SpotifyLogo";
 
 const Signup = () => {
@@ -31,7 +31,24 @@ const Signup = () => {
             Next
           </button>
         </div>
-        <div className="h-[272px]">last</div>
+        <div className="h-[272px]">
+          <div className="flex justify-center items-center w-full ">
+            <div className="grow">
+              <hr />
+            </div>
+
+            <span className="mx-4">or</span>
+
+            <div className="grow">
+              <hr />
+            </div>
+          </div>
+          <div>botton</div>
+          <div>
+            <hr />
+          </div>
+          <div>asd</div>
+        </div>
       </div>
       <div className="h-[77px] flex justify-center items-center text-center text-xs w-full">
         <p className="bg-black w-full mx-12">

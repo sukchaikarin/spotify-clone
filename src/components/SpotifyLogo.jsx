@@ -1,4 +1,3 @@
-import React from "react";
 import SpotifyLogoImg from "/Spotify_Logo_CMYK.png";
 const SpotifyLogo = ({ logoClassName, logoStyle }) => {
   return (

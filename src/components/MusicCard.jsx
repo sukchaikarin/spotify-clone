@@ -1,4 +1,4 @@
-import React from "react";
+import "../css/card.css";
 import { FaCirclePlay } from "react-icons/fa6";
 import "../css/playcard.css";
 const MusicCard = () => {
@@ -12,11 +12,10 @@ const MusicCard = () => {
             className="rounded-md"
           />
         </figure>
-        <div className="absolute play-card">
-          <button className=" bg-black rounded-full  shadow-lg text-[#1ed55f]   ">
-            <FaCirclePlay size={45} />
-          </button>
-        </div>
+
+        <button className="absolute play-card rounded-full  shadow-lg text-[#1ed55f]   ">
+          <FaCirclePlay size={45} />
+        </button>
       </div>
       <div className="flex flex-col   ">
         <h2 className="h-[25px]">lofi beats</h2>

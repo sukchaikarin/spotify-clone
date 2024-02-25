@@ -1,4 +1,6 @@
-const Nav = ({ children }) => {
+import React from "react";
+
+const Navbar = ({ children }) => {
   return (
     <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
       {children}
@@ -7,4 +9,4 @@ const Nav = ({ children }) => {
   );
 };
 
-export default Nav;
+export default Navbar;

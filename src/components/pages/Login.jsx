@@ -2,13 +2,29 @@ import React, { useEffect, useState } from "react";
 import SpotifyLogo from "../SpotifyLogo";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+const BACKEND_URL = "http://localhost:3000/";
+const clientID =
+  "660556148422-ag17p365alu1ti4fptoco0il1o5va1j3.apps.googleusercontent.com";
 const Login = () => {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
-  const clientID =
-    "660556148422-ag17p365alu1ti4fptoco0il1o5va1j3.apps.googleusercontent.com";
 
   useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`${BACKEND_URL}`, {
+        withCredentials: true,
+      });
+      // console.log(response.data.userData);
+      if (response.status === 200 && response.data) {
+        //setData(response.data);
+        console.log(response.data);
+      }
+    };
+    getData();
+
     const initClient = () => {
       gapi.client.init({
         clientID,
@@ -18,9 +34,32 @@ const Login = () => {
     gapi.load("client:auth2", initClient);
   }, []);
 
-  const onSuccess = (res) => {
-    console.log("success", res);
-    setProfile(res.profileObj);
+  const onSuccess = async (res) => {
+    const member = res.profileObj;
+
+    //console.log(member);
+    const response = await axios.post(`${BACKEND_URL}api/signup`, member, {
+      withCredentials: true,
+    });
+    console.log("Response status:", response.status);
+
+    if (response.status === 200) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Login Success",
+        showConfirmButton: true,
+        timer: 1500,
+      }).then(() => {
+        navigate("/member");
+      });
+
+      // setProfile(res.profileObj);
+      //console.log(response.data);
+      //console.log("success", res);
+    } else {
+      console.error("Failed to process the request");
+    }
   };
   const onFailure = (res) => {
     console.log("failed", res);

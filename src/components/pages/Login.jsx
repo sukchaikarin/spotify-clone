@@ -44,6 +44,7 @@ const Login = () => {
     console.log("Response status:", response.status);
 
     if (response.status === 200) {
+      localStorage.setItem("token", response.data.token);
       Swal.fire({
         position: "center",
         icon: "success",

@@ -76,11 +76,34 @@ const Login = () => {
       <div className=" h-[94px] p-8 w-full">
         <SpotifyLogo logoClassName={logoClassName} logoStyle={logoStyle} />
       </div>
-      <div className=" flex flex-col px-8 h-full gap-[40px]  justify-between w-[387px]">
-        <h1 className="font-bold h-[95px] text-[42px] leading-none  text-white ">
-          Sign up to start listening
+      <div className=" flex flex-col px-8 h-full gap-[40px]  justify-between w-[733px]">
+        <h1 className="font-bold h-[95px] text-center text-[42px] leading-none  text-white ">
+          Log in to Spotify
         </h1>
-        <div className="h-[207px] flex flex-col gap-2">
+        <div className="grow flex flex-col gap-1">
+          <div className="flex justify-center items-center my-4">
+            <GoogleLogin
+              clientId={clientID}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={true}
+            />
+          </div>
+          <div className="flex justify-center items-center w-full ">
+            <div className="grow">
+              <hr />
+            </div>
+
+            <span className="mx-4">or</span>
+
+            <div className="grow">
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div className="h-[272px] flex flex-col gap-2">
           <span className="text-white">Email address</span>
           <input
             className="bg-transparent p-3 border border-gray-400 rounded-md"
@@ -94,51 +117,8 @@ const Login = () => {
             Use phone number instead.
           </a>
           <button className="font-bold text-black mt-3 bg-green-500 p-3 rounded-full">
-            Next
+            Log in
           </button>
-        </div>
-        <div className="h-[272px]">
-          <div className="flex justify-center items-center w-full ">
-            <div className="grow">
-              <hr />
-            </div>
-
-            <span className="mx-4">or</span>
-
-            <div className="grow">
-              <hr />
-            </div>
-          </div>
-          <div>
-            <h2>Google Login</h2>
-            {profile ? (
-              <div>
-                <img src={profile.imageUrl} alt="user image" />
-                <h3>User Logged in</h3>
-                <p>Name : {profile.name}</p>
-                <p>Email : {profile.email}</p>
-
-                <GoogleLogout
-                  clientId={clientID}
-                  buttonText="Log out"
-                  onLogoutSuccess={logOut}
-                />
-              </div>
-            ) : (
-              <GoogleLogin
-                clientId={clientID}
-                buttonText="Sign in with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={"single_host_origin"}
-                isSignedIn={true}
-              />
-            )}
-          </div>
-          <div>
-            <hr />
-          </div>
-          <div>asd</div>
         </div>
       </div>
       <div className="h-[77px] flex justify-center items-center text-center text-xs w-full">

@@ -1,5 +1,5 @@
-import GoBackBtn from "./GoBackBtn";
-import NavSign from "./NavSign";
+import GoBackBtn from "../item/GoBackBtn";
+import NavSign from "../item/NavSign";
 
 const FirstTopNav = () => {
   return (

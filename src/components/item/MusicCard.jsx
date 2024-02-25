@@ -1,6 +1,6 @@
-import "../css/card.css";
 import { FaCirclePlay } from "react-icons/fa6";
-import "../css/playcard.css";
+import "../../css/playcard.css";
+
 const MusicCard = () => {
   return (
     <div className="music-card cursor-pointer hover:bg-neutral-700 flex flex-col p-4 w-44 h-64 justify-between items-center gap-[14px] bg-neutral-800 shadow-md rounded-lg ">

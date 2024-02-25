@@ -1,6 +1,6 @@
 import Search from "./Search";
-import GoBackBtn from "./GoBackBtn";
-import NavSign from "./NavSign";
+import GoBackBtn from "../item/GoBackBtn";
+import NavSign from "../item/NavSign";
 const TopNavSearch = () => {
   return (
     <NavSign>

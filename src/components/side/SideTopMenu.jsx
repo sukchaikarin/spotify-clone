@@ -1,4 +1,4 @@
-import SpotifyLogo from "../SpotifyLogo";
+import SpotifyLogo from "../item/SpotifyLogo";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { BsSearchHeart, BsSearchHeartFill } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";

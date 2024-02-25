@@ -1,5 +1,5 @@
 import { FaCirclePlay } from "react-icons/fa6";
-import "../../css/playcard.css";
+import "../css/playcard.css";
 
 const MusicCard = () => {
   return (

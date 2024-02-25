@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Homepage from "./components/main/home/Homepage";
-import Signup from "./components/signup/Signup";
-import SearchPage from "./components/main/search/SearchPage";
-import RightClickProtect from "./components/item/RightClickProtect";
+import Homepage from "./components/pages/home/Homepage";
+import RightClickProtect from "./components/RightClickProtect";
+import Signup from "./components/pages/Signup";
+import SearchPage from "./components/pages/search/SearchPage";
+
 const router = createBrowserRouter([
   {
     path: "/",

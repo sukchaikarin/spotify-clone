@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusicCard from "../../item/MusicCard";
+import MusicCard from "../../MusicCard";
 const HomePlaylist = () => {
   const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
 

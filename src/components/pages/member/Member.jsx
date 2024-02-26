@@ -4,39 +4,55 @@ import TopNav from "./TopNav";
 import MemberPlaylist from "./MemberPlaylist";
 import Content from "../../Content";
 import { useDispatch, useSelector } from "react-redux";
-const BACKEND_URL = "http://localhost:3000";
 import axios from "axios";
-import { addMember } from "../../../store/membersSlice";
+import { setToken } from "../../../store/tokenSlice";
+import { setMember } from "../../../store/memberSlice";
+import BrowseAll from "../../BrowseAll";
+import TopNavSearch from "../search/TopNavSearch";
 
 const Member = () => {
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.members.memberData);
-  console.log(data.type);
-  console.log("this is the data", data);
+  const token = useSelector((state) => state.token.tokenData);
+  //console.log(data.type);
+  //console.log("this is the data", data);
 
   useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`${BACKEND_URL}/api/member`, {
-        withCredentials: true,
-      });
-      if (response.status === 200 && response.data) {
-        dispatch(addMember(response.data.memberData));
-        console.log(response.data.memberData);
-      }
-    };
-
-    // ตรวจสอบว่า data.type เป็น undefined หรือไม่
-    if (data.type === undefined) {
-      getData();
-      console.log("this is undefiend ,", data); // เรียกใช้ getData() เมื่อ data.type เป็น undefined
+    const hash = window.location.hash;
+    if (hash) {
+      const token = hash.substring(1).split("&")[0].split("=")[1];
+      //console.log(`the token is ${token}`);
+      dispatch(setToken(token));
+      window.history.replaceState(null, "", window.location.pathname);
     }
   }, []);
+
+  useEffect(() => {
+    const getMemberData = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      const userInfo = {
+        userId: data.id,
+        userName: data.display_name,
+        img: data.images[0] || null,
+      };
+
+      dispatch(setMember(userInfo));
+    };
+    if (token) {
+      getMemberData();
+    }
+  }, [token]);
 
   return (
     <Layout>
       <TopNav />
       <Content>
+        <BrowseAll />
         <MemberPlaylist />
       </Content>
     </Layout>

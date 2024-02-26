@@ -8,7 +8,6 @@ const spotifyClient_Secret = "b7fb5e718f8f4d3e8ebf492869284c76";
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const Search = () => {
         setAccessToken(accessToken);
 
         const playlistResponse = await axios.get(
-          `https://api.spotify.com/v1/search?q=taylor&type=playlist`,
+          `https://api.spotify.com/v1/search?q=k-otic&type=playlist`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -53,7 +52,7 @@ const Search = () => {
     try {
       const response = await axios.get(
         `https://api.spotify.com/v1/search?q=${encodeURIComponent(
-          searchQuery || "taylor"
+          searchQuery || "k-otic"
         )}&type=playlist`,
         {
           headers: {
@@ -63,7 +62,6 @@ const Search = () => {
         }
       );
       dispatch(addplaylist(response.data));
-      //console.log(response.data); // Display the result in the console
     } catch (error) {
       console.error("Error searching for artist:", error);
     }
@@ -80,8 +78,7 @@ const Search = () => {
         type="search"
         placeholder="What do you want to play?"
         onChange={(e) => {
-          setSearchInput(e.target.value);
-          search(e.target.value); // Call search with the updated search input
+          search(e.target.value);
         }}
       />
     </div>

@@ -5,31 +5,15 @@ import { FaRegBell } from "react-icons/fa6";
 import ImageProfile from "./ImageProfile";
 import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineExport } from "react-icons/ai";
-import { GoogleLogout } from "react-google-login";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-const clientID =
-  "660556148422-ag17p365alu1ti4fptoco0il1o5va1j3.apps.googleusercontent.com";
-const Navbar = ({ children }) => {
-  const navigate = useNavigate();
-  const data = useSelector((state) => state.members.memberData);
-  const logOut = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Logout Successful",
-      showConfirmButton: true,
-      timer: 1500,
-    }).then(() => {
-      navigate("/");
-    });
 
-    console.log("logout success");
-  };
+const Navbar = ({ children }) => {
+  const data = useSelector((state) => state.member.member);
+  //console.log(` data โว้ยยยย ${data?.img?.type}`);
+
   return (
     <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
       {children}
-      <div class="flex gap-2 justify-center items-center">
+      <div className="flex gap-2 justify-center items-center">
         <button className="bg-white font-semibold text-sm text-black   px-[15px] py-[6px] flex justify-center items-center  rounded-full transform transition-transform hover:scale-105 hover:font-bold">
           Explore Premium
         </button>
@@ -50,8 +34,14 @@ const Navbar = ({ children }) => {
             role="button"
             className="bg-neutral-700 p-1 rounded-full transform transition-transform hover:scale-105"
           >
-            {/* <FaUserCircle size={28} /> */}
-            <ImageProfile srcImg={data?.imageUrl} />
+            {!data?.img?.url ? (
+              <FaUserCircle size={28} />
+            ) : (
+              <ImageProfile
+                srcImg={data?.img?.url}
+                styleImg={"rounded-full h-7"}
+              />
+            )}
           </div>
           <ul
             tabIndex={0}
@@ -75,12 +65,7 @@ const Navbar = ({ children }) => {
             </li>
             <hr />
             <li>
-              <GoogleLogout
-                clientId={clientID}
-                buttonText="Log out"
-                onLogoutSuccess={logOut}
-                render={({ onClick }) => <a onClick={onClick}>Log out</a>}
-              />
+              <a>Log out</a>
             </li>
           </ul>
         </div>

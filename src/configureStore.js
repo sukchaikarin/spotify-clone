@@ -5,6 +5,7 @@ import membersSlice from "./store/membersSlice";
 import playlistsSlice from "./store/playlistsSlice";
 import tokenSlice from "./store/tokenSlice";
 import uplaylistsSlice from "./store/uplaylistsSlice";
+import memberSlice from "./store/memberSlice";
 
 
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     playlists: playlistsSlice,
     token: tokenSlice,
     uplaylist: uplaylistsSlice,
+    member: memberSlice,
 
 });
 

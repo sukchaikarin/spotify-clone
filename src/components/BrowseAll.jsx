@@ -30,7 +30,7 @@ const BrowseAll = () => {
 
       <div className="flex flex-wrap  gap-[21px]">
         {displayedMusics.map((product) => {
-          console.log(product);
+          //console.log(product);
           return (
             <MusicCard
               key={product.id}

@@ -6,12 +6,11 @@ import { setPlaylists } from "../../../store/uplaylistsSlice";
 
 const MemberPlaylist = () => {
   const dispatch = useDispatch();
-  const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
 
   const token = useSelector((state) => state.token.tokenData);
   useEffect(() => {
     console.log(`this is a token of u ${token}`);
-
+    console.log(`this is a tokentype of u ${token.type}`);
     const getPlaylistData = async () => {
       const response = await axios.get(
         "https://api.spotify.com/v1/me/playlists",
@@ -28,14 +27,10 @@ const MemberPlaylist = () => {
       });
       dispatch(setPlaylists(playlists));
     };
-
-    getPlaylistData();
+    if (token) {
+      getPlaylistData();
+    }
   }, [token]);
-
-  // เลือกจำนวนplaylistที่จะแสดงโดยใช้ตัวแปร showAll
-  // const displayedMusics = showAll
-  //   ? data?.playlists?.items || []
-  //   : data?.playlists?.items?.slice(0, 6) || [];
 
   return <div className="flex flex-col gap-2">asdasd</div>;
 };

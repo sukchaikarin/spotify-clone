@@ -1,22 +1,27 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import logger from "redux-logger";
-import membersSlice from "./store/membersSlice";
+
 import playlistsSlice from "./store/playlistsSlice";
 import tokenSlice from "./store/tokenSlice";
 import uplaylistsSlice from "./store/uplaylistsSlice";
 import memberSlice from "./store/memberSlice";
 import playlistIdSlice from "./store/playlistIdSlice";
+import playingSlice from "./store/playingSlice";
+import playSlice from "./store/playSlice";
+
 
 
 
 const rootReducer = combineReducers({
-    members: membersSlice,
+
     playlists: playlistsSlice,
     token: tokenSlice,
     uplaylist: uplaylistsSlice,
     member: memberSlice,
     playlistId: playlistIdSlice,
+    current: playingSlice,
+    playstate: playSlice,
 
 });
 

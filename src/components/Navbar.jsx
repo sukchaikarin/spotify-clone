@@ -8,7 +8,7 @@ import { AiOutlineExport } from "react-icons/ai";
 
 const Navbar = ({ children }) => {
   const data = useSelector((state) => state.member.member);
-  console.log(` data โว้ยยยย ${data?.img?.type}`);
+  //console.log(` data โว้ยยยย ${data?.img?.type}`);
 
   return (
     <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
@@ -37,7 +37,10 @@ const Navbar = ({ children }) => {
             {!data?.img?.url ? (
               <FaUserCircle size={28} />
             ) : (
-              <ImageProfile srcImg={data?.img?.url} />
+              <ImageProfile
+                srcImg={data?.img?.url}
+                styleImg={"rounded-full h-7"}
+              />
             )}
           </div>
           <ul

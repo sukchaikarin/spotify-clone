@@ -7,7 +7,6 @@ const BrowseAll = () => {
 
   const data = useSelector((state) => state.playlists.playlistData);
 
-  // เลือกจำนวนplaylistที่จะแสดงโดยใช้ตัวแปร showAll
   const displayedMusics = showAll
     ? data?.playlists?.items || []
     : data?.playlists?.items?.slice(0, 6) || [];
@@ -30,13 +29,13 @@ const BrowseAll = () => {
 
       <div className="flex flex-wrap  gap-[21px]">
         {displayedMusics.map((product) => {
-          //console.log(product);
           return (
             <MusicCard
               key={product.id}
               srcImg={product.images[0].url}
               name={product.name}
               desc={product.description}
+              playlistId={product.id}
             />
           );
         })}

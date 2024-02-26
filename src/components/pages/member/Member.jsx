@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setToken } from "../../../store/tokenSlice";
 import { setMember } from "../../../store/memberSlice";
+import BrowseAll from "../../BrowseAll";
+import TopNavSearch from "../search/TopNavSearch";
 
 const Member = () => {
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const Member = () => {
       const token = hash.substring(1).split("&")[0].split("=")[1];
       //console.log(`the token is ${token}`);
       dispatch(setToken(token));
-      // window.history.replaceState(null, "", window.location.pathname);
+      window.history.replaceState(null, "", window.location.pathname);
     }
   }, []);
 
@@ -33,7 +35,6 @@ const Member = () => {
           "Content-Type": "application/json",
         },
       });
-      // console.log(data);
       const userInfo = {
         userId: data.id,
         userName: data.display_name,
@@ -51,6 +52,7 @@ const Member = () => {
     <Layout>
       <TopNav />
       <Content>
+        <BrowseAll />
         <MemberPlaylist />
       </Content>
     </Layout>

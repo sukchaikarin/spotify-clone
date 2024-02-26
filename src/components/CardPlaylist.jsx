@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 
 const CardPlaylist = () => {
   const data = useSelector((state) => state.uplaylist.playlists);
-  console.log(data[0].id);
 
   return (
     <>
-      {data.map((playlist) => {
+      {data?.map((playlist) => {
         const { name, id } = playlist;
-        const playlistImg = playlist.images[2].url;
+        const playlistImg =
+          playlist.images[0].url || "https://placehold.co/100";
         const owner = playlist.owner.display_name;
         return (
           <div

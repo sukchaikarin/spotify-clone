@@ -1,8 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Homepage from "./components/pages/home/Homepage";
 import RightClickProtect from "./components/RightClickProtect";
-import Signup from "./components/Signup";
-import Homepage from "./components/main/Homepage";
-import SearchPage from "./components/main/SearchPage";
+import Signup from "./components/pages/Signup";
+import SearchPage from "./components/pages/search/SearchPage";
+import Member from "./components/pages/member/Member";
+import Login from "./components/pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +21,20 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
+    path: "/login",
+    element: <Login />,
+  },
+  {
     path: "/search",
     element: (
-      <RightClickProtect>
-        <SearchPage />
-      </RightClickProtect>
+      // <RightClickProtect>
+      <SearchPage />
+      // </RightClickProtect>
     ),
+  },
+  {
+    path: "/member",
+    element: <Member />,
   },
 ]);
 

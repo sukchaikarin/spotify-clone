@@ -1,5 +1,4 @@
-
-import SpotifyLogo from "./SpotifyLogo";
+import SpotifyLogo from "../SpotifyLogo";
 
 const Signup = () => {
   const logoClassName = "cursor-pointer";

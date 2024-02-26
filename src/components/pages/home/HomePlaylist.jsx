@@ -1,17 +1,22 @@
-import  { useState } from "react";
-import MusicCard from "../MusicCard";
+import { useState } from "react";
+import MusicCard from "../../MusicCard";
+import { useSelector } from "react-redux";
+
 const HomePlaylist = () => {
   const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
 
-  const products = new Array(10).fill(null); // สร้าง array ที่มีข้อมูล null 10 รายการ
+  const data = useSelector((state) => state.playlists.playlistData);
 
   // เลือกจำนวนplaylistที่จะแสดงโดยใช้ตัวแปร showAll
-  const displayedProducts = showAll ? products : products.slice(0, 6);
+  const displayedMusics = showAll
+    ? data?.playlists?.items || []
+    : data?.playlists?.items?.slice(0, 6) || [];
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between mr-6">
         <h1 className=" text-2xl font-bold hover:underline hover:underline-offset-2">
-          Spotify Playlists
+          Spotify Playlists{""}
         </h1>
         {!showAll && (
           <button
@@ -22,10 +27,19 @@ const HomePlaylist = () => {
           </button>
         )}
       </div>
+
       <div className="flex flex-wrap  gap-[21px]">
-        {displayedProducts.map((product, index) => (
-          <MusicCard key={index} />
-        ))}
+        {displayedMusics.map((product) => {
+          console.log(product);
+          return (
+            <MusicCard
+              key={product.id}
+              srcImg={product.images[0].url}
+              name={product.name}
+              desc={product.description}
+            />
+          );
+        })}
       </div>
     </div>
   );

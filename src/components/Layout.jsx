@@ -1,6 +1,6 @@
 import React from "react";
 import SplitPane from "react-split-pane";
-import Sidebar from "./side/Sidebar";
+import Sidebar from "./Sidebar";
 import PlayMenu from "./PlayMenu";
 
 import "../css/Mainpage.css";

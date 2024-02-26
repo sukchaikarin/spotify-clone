@@ -7,9 +7,11 @@ const SignUpSignIn = () => {
           Sign up
         </button>
       </Link>
-      <button className="bg-white font-bold text-black w-28 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
-        Log in
-      </button>
+      <Link to={"/login"}>
+        <button className="bg-white font-bold text-black w-28 h-12 mr-3 rounded-full transform transition-transform hover:scale-105 hover:font-extrabold">
+          Log in
+        </button>
+      </Link>
     </div>
   );
 };

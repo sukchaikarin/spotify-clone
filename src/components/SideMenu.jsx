@@ -1,5 +1,4 @@
-
-import "../../css/sidemenu.css";
+import "../css/sidemenu.css";
 import { TbWorld } from "react-icons/tb";
 import { VscLibrary } from "react-icons/vsc";
 import { FaPlus } from "react-icons/fa6";

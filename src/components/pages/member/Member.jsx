@@ -21,7 +21,7 @@ const Member = () => {
       const token = hash.substring(1).split("&")[0].split("=")[1];
       //console.log(`the token is ${token}`);
       dispatch(setToken(token));
-      window.history.replaceState(null, "", window.location.pathname);
+      // window.history.replaceState(null, "", window.location.pathname);
     }
   }, []);
 
@@ -33,7 +33,7 @@ const Member = () => {
           "Content-Type": "application/json",
         },
       });
-     // console.log(data);
+      // console.log(data);
       const userInfo = {
         userId: data.id,
         userName: data.display_name,

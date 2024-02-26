@@ -5,28 +5,11 @@ import { FaRegBell } from "react-icons/fa6";
 import ImageProfile from "./ImageProfile";
 import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineExport } from "react-icons/ai";
-import { GoogleLogout } from "react-google-login";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-const clientID =
-  "660556148422-ag17p365alu1ti4fptoco0il1o5va1j3.apps.googleusercontent.com";
+
 const Navbar = ({ children }) => {
-  const navigate = useNavigate();
   const data = useSelector((state) => state.member.member);
   console.log(` data โว้ยยยย ${data?.img?.type}`);
-  const logOut = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Logout Successful",
-      showConfirmButton: true,
-      timer: 1500,
-    }).then(() => {
-      navigate("/");
-    });
 
-    console.log("logout success");
-  };
   return (
     <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
       {children}
@@ -79,12 +62,7 @@ const Navbar = ({ children }) => {
             </li>
             <hr />
             <li>
-              <GoogleLogout
-                clientId={clientID}
-                buttonText="Log out"
-                onLogoutSuccess={logOut}
-                render={({ onClick }) => <a onClick={onClick}>Log out</a>}
-              />
+              <a>Log out</a>
             </li>
           </ul>
         </div>

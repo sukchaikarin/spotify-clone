@@ -27,9 +27,9 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: (
-      <RightClickProtect>
-        <SearchPage />
-      </RightClickProtect>
+      // <RightClickProtect>
+      <SearchPage />
+      // </RightClickProtect>
     ),
   },
   {

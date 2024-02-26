@@ -4,7 +4,7 @@ import SpotifyLogo from "../SpotifyLogo";
 const Login = () => {
   const handleClick = () => {
     const clientId = "93049660117b47258f4e1d013d95619d"; //your client id
-    const redirectUrl = "http://localhost:5173/member";
+    const redirectUrl = "https://spotify-clone-ten-beta.vercel.app/member";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [
       "user-read-email",

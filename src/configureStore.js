@@ -2,9 +2,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import logger from "redux-logger";
 import membersSlice from "./store/membersSlice";
+import playlistsSlice from "./store/playlistsSlice";
 
 const rootReducer = combineReducers({
-    members: membersSlice
+    members: membersSlice,
+    playlists: playlistsSlice
 
 });
 

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa6";
 import ImageProfile from "./ImageProfile";
+import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineExport } from "react-icons/ai";
 import { GoogleLogout } from "react-google-login";
 import Swal from "sweetalert2";
@@ -49,7 +50,8 @@ const Navbar = ({ children }) => {
             role="button"
             className="bg-neutral-700 p-1 rounded-full transform transition-transform hover:scale-105"
           >
-            <ImageProfile srcImg={data.imageUrl} />
+            {/* <FaUserCircle size={28} /> */}
+            <ImageProfile srcImg={data?.imageUrl} />
           </div>
           <ul
             tabIndex={0}

@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 const BACKEND_URL = "http://localhost:3000";
 import axios from "axios";
 import { addMember } from "../../../store/membersSlice";
-import { GoogleLogout } from "react-google-login";
 
 const Member = () => {
   const dispatch = useDispatch();

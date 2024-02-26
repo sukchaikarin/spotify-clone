@@ -7,22 +7,30 @@ import { useDispatch, useSelector } from "react-redux";
 const BACKEND_URL = "http://localhost:3000";
 import axios from "axios";
 import { addMember } from "../../../store/membersSlice";
+import { setToken } from "../../../store/tokenSlice";
 
 const Member = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.members.memberData);
-  console.log(data.type);
-  console.log("this is the data", data);
+  //console.log(data.type);
+  //console.log("this is the data", data);
 
   useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const token = hash.substring(1).split("&")[0].split("=")[1];
+      console.log(`the token is ${token}`);
+      dispatch(setToken(token));
+    }
+
     const getData = async () => {
       const response = await axios.get(`${BACKEND_URL}/api/member`, {
         withCredentials: true,
       });
       if (response.status === 200 && response.data) {
         dispatch(addMember(response.data.memberData));
-        console.log(response.data.memberData);
+        //console.log(response.data.memberData);
       }
     };
 

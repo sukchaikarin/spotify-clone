@@ -65,8 +65,25 @@ const Login = () => {
   const onFailure = (res) => {
     console.log("failed", res);
   };
-  const logOut = () => {
-    setProfile(null);
+
+  const handleClick = () => {
+    const clientId = "93049660117b47258f4e1d013d95619d"; //your client id
+    const redirectUrl = "http://localhost:5173/member";
+    const apiUrl = "https://accounts.spotify.com/authorize";
+    const scope = [
+      "user-read-email",
+      "user-read-private",
+      "user-read-playback-state",
+      "user-modify-playback-state",
+      "user-read-currently-playing",
+      "user-read-playback-position",
+      "user-top-read",
+      "user-read-recently-played",
+    ];
+
+    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
+      " "
+    )}&response_type=token&show_dialog=true`;
   };
 
   const logoClassName = "cursor-pointer";
@@ -91,6 +108,7 @@ const Login = () => {
               isSignedIn={true}
             />
           </div>
+          <button onClick={handleClick}>Connect Spotify</button>
           <div className="flex justify-center items-center w-full ">
             <div className="grow">
               <hr />

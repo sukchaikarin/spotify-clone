@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SpotifyLogo from "../SpotifyLogo";
-import GoogleLogin, { GoogleLogout } from "react-google-login";
+import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

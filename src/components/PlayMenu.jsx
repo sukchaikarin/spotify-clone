@@ -8,22 +8,22 @@ const PlayMenu = () => {
 
   const data = useSelector((state) => state.member.member);
 
-  // useEffect(() => {
-  //   // ตรวจสอบว่ามีข้อมูล data หรือไม่
-  //   if (data) {
-  //     // ถ้ามีข้อมูลให้ตั้งค่า isLogin เป็น true
-  //     setIsLogin(true);
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    // ตรวจสอบว่ามีข้อมูล data หรือไม่
+    if (data) {
+      // ถ้ามีข้อมูลให้ตั้งค่า isLogin เป็น true
+      setIsLogin(true);
+    }
+  }, [data]);
   return (
     <>
       {isLogin ? (
         <>
-          <div className="flex grow justify-center items-start text-white bg-slate-500">
+          {/* <div className="flex grow justify-center items-start text-white bg-slate-500">
             <div className="grow bg-lime-500 h-full">1</div>
             <div className="grow bg-rose-500  h-full"></div>
             <div className="grow bg-slate-700  h-full">3</div>
-          </div>
+          </div> */}
         </>
       ) : (
         <Link

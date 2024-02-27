@@ -1,14 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa6";
 import ImageProfile from "./ImageProfile";
 import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineExport } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
+import { setPlaylists } from "../store/uplaylistsSlice";
+import { setToken } from "../store/tokenSlice";
+import { setPlaylistId } from "../store/playlistIdSlice";
+import { setMember } from "../store/memberSlice";
 
 const Navbar = ({ children }) => {
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.member.member);
   //console.log(` data โว้ยยยย ${data?.img?.type}`);
+
+  const logout = () => {
+    dispatch(setMember(false));
+    dispatch(setPlaylistId(false));
+    dispatch(setPlaylists(false));
+    dispatch(setToken(false));
+  };
 
   return (
     <div className="flex justify-between items-center px-7 bg-neutral-950  rounded-t-lg  absolute h-16 w-full z-50">
@@ -65,7 +79,9 @@ const Navbar = ({ children }) => {
             </li>
             <hr />
             <li>
-              <a>Log out</a>
+              <Link to={"/"} onClick={logout}>
+                Log out
+              </Link>
             </li>
           </ul>
         </div>

@@ -76,51 +76,51 @@ const MemberPlaylist = () => {
     }
   }, [token]);
 
-  // const playTrack = async (
-  //   id,
-  //   name,
-  //   artists,
-  //   image,
-  //   context_uri,
-  //   track_number,
-  //   token
-  // ) => {
-  //   const currentPlaying = {
-  //     id,
-  //     name,
-  //     artists,
-  //     image,
-  //   };
-  //   dispatch(setCurrent(currentPlaying));
+  const playTrack = async (
+    id,
+    name,
+    artists,
+    image,
+    context_uri,
+    track_number,
+    token
+  ) => {
+    const currentPlaying = {
+      id,
+      name,
+      artists,
+      image,
+    };
+    dispatch(setCurrent(currentPlaying));
 
-  // const response = await axios.put(
-  //   `https://api.spotify.com/v1/me/player/play`,
-  //   {
-  //     context_uri,
-  //     offset: {
-  //       position: track_number - 1,
-  //     },
-  //     position_ms: 0,
-  //   },
-  //   {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "Bearer " + token,
-  //     },
-  //   }
-  // );
-  // if (response.status === 204) {
-  //   const currentPlaying = {
-  //     id,
-  //     name,
-  //     artists,
-  //     image,
-  //   };
-  //   dispatch(setCurrent(currentPlaying));
-  // } else {
-  //   dispatch(setPlay(true));
-  // }
-  //};
+    // const response = await axios.put(
+    //   `https://api.spotify.com/v1/me/player/play`,
+    //   {
+    //     context_uri,
+    //     offset: {
+    //       position: track_number - 1,
+    //     },
+    //     position_ms: 0,
+    //   },
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: "Bearer " + token,
+    //     },
+    //   }
+    // );
+    // if (response.status === 204) {
+    //   const currentPlaying = {
+    //     id,
+    //     name,
+    //     artists,
+    //     image,
+    //   };
+    //   dispatch(setCurrent(currentPlaying));
+    // } else {
+    //   dispatch(setPlay(true));
+    // }
+  };
   //console.log(selectedPlaylist);
   const playlistName = data?.name;
   const playlistImg = data?.image;
@@ -135,11 +135,11 @@ const MemberPlaylist = () => {
         src={`https://open.spotify.com/embed/playlist/${playlistId2}?utm_source=generator&theme=0`}
         width="100%"
         height="100%"
-        style={{ minHeight: "1200px" }}
+        style={{ minHeight: "400px" }}
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
       />
-      {/* <div className="flex  gap-6 items-center  ">
+      <div className="flex  gap-6 items-center  ">
         <img
           className="w-52 rounded-lg shadow-gray-600 shadow-md "
           src={playlistImg}
@@ -217,7 +217,7 @@ const MemberPlaylist = () => {
             }
           )}
         </tbody>
-      </table> */}
+      </table>
     </>
   );
 };

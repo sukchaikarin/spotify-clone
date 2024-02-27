@@ -30,7 +30,7 @@ const Signup = () => {
             Next
           </button>
         </div>
-        <div className="h-[272px]">
+        {/* <div className="h-[272px]">
           <div className="flex justify-center items-center w-full ">
             <div className="grow">
               <hr />
@@ -47,7 +47,7 @@ const Signup = () => {
             <hr />
           </div>
           <div>asd</div>
-        </div>
+        </div> */}
       </div>
       <div className="h-[77px] flex justify-center items-center text-center text-xs w-full">
         <p className="bg-black w-full mx-12">

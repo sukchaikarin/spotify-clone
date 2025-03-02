@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { TbPointFilled } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -7,7 +7,6 @@ import { setPlaylistId } from "../../../store/playlistIdSlice";
 import ImageProfile from "../../ImageProfile";
 import { formatDuration } from "../../../utils/utilities";
 import { setCurrent } from "../../../store/playingSlice";
-import { setPlay } from "../../../store/playSlice";
 
 const MemberPlaylist = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const MemberPlaylist = () => {
           },
         }
       );
-      console.log(response.data);
+      console.log("this is a ", response.data);
       console.log("มาเอาด้าต้าตรงนี้", response?.data?.items[0].id);
 
       const selectedPlaylistId = response?.data?.items[0].id;
@@ -74,17 +73,12 @@ const MemberPlaylist = () => {
     if (token) {
       getPlaylistData();
     }
-  }, [token]);
 
-  const playTrack = async (
-    id,
-    name,
-    artists,
-    image,
-    context_uri,
-    track_number,
-    token
-  ) => {
+    console.log("this is a token", token);
+    console.log("this is a data", data);
+  }, [token, dispatch, data]);
+
+  const playTrack = async (id, name, artists, image) => {
     const currentPlaying = {
       id,
       name,
@@ -92,36 +86,8 @@ const MemberPlaylist = () => {
       image,
     };
     dispatch(setCurrent(currentPlaying));
-
-    // const response = await axios.put(
-    //   `https://api.spotify.com/v1/me/player/play`,
-    //   {
-    //     context_uri,
-    //     offset: {
-    //       position: track_number - 1,
-    //     },
-    //     position_ms: 0,
-    //   },
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   }
-    // );
-    // if (response.status === 204) {
-    //   const currentPlaying = {
-    //     id,
-    //     name,
-    //     artists,
-    //     image,
-    //   };
-    //   dispatch(setCurrent(currentPlaying));
-    // } else {
-    //   dispatch(setPlay(true));
-    // }
   };
-  //console.log(selectedPlaylist);
+
   const playlistName = data?.name;
   const playlistImg = data?.image;
   const countSong = data?.tracks?.length;

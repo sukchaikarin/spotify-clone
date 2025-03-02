@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/jsx-no-undef */
 const FirstNavSearch = () => {
   return (
     <NavSign>

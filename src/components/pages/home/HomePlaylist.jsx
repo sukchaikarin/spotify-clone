@@ -12,6 +12,10 @@ const HomePlaylist = () => {
     ? data?.playlists?.items || []
     : data?.playlists?.items?.slice(0, 6) || [];
 
+  const filteredPlaylists = displayedMusics.filter(
+    (playlist) => playlist !== null && typeof playlist === "object"
+  );
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between mr-6">
@@ -29,7 +33,7 @@ const HomePlaylist = () => {
       </div>
 
       <div className="flex flex-wrap  gap-[21px]">
-        {displayedMusics.map((product) => {
+        {filteredPlaylists.map((product) => {
           console.log(product);
           return (
             <MusicCard

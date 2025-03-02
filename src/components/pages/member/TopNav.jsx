@@ -1,4 +1,3 @@
-import React from "react";
 import GoBackBtn from "../../GoBackBtn";
 import Navbar from "../../Navbar";
 

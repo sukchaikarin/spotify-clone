@@ -6,10 +6,18 @@ const BrowseAll = () => {
   const [showAll, setShowAll] = useState(false); // สร้าง state เพื่อเก็บสถานะการแสดงข้อมูลทั้งหมด
 
   const data = useSelector((state) => state.playlists.playlistData);
-
+  console.log("this is a dataplaylist", data?.playlists?.items || []);
   const displayedMusics = showAll
     ? data?.playlists?.items || []
     : data?.playlists?.items?.slice(0, 6) || [];
+
+  const filteredPlaylists = displayedMusics.filter(
+    (playlist) => playlist !== null && typeof playlist === "object"
+  );
+
+  console.log(filteredPlaylists);
+
+  console.log("🚀 ~ BrowseAll ~ displayedMusics:", displayedMusics);
 
   return (
     <div className="flex flex-col gap-2">
@@ -28,7 +36,8 @@ const BrowseAll = () => {
       </div>
 
       <div className="flex flex-wrap  gap-[21px]">
-        {displayedMusics.map((product) => {
+        {filteredPlaylists.map((product) => {
+          console.log("🚀 ~ BrowseAll ~ product:", product);
           return (
             <MusicCard
               key={product.id}

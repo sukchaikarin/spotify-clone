@@ -35,7 +35,7 @@ const Search = () => {
             },
           }
         );
-
+        console.log("playlistResponse :", playlistResponse.data);
         dispatch(addplaylist(playlistResponse.data));
       } catch (error) {
         console.error("Error fetching access token:", error);
@@ -43,6 +43,7 @@ const Search = () => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Search

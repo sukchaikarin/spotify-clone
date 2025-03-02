@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import Layout from "../../Layout";
 import TopNav from "./TopNav";
 import MemberPlaylist from "./MemberPlaylist";
@@ -8,7 +9,6 @@ import axios from "axios";
 import { setToken } from "../../../store/tokenSlice";
 import { setMember } from "../../../store/memberSlice";
 import BrowseAll from "../../BrowseAll";
-import TopNavSearch from "../search/TopNavSearch";
 
 const Member = () => {
   const dispatch = useDispatch();
